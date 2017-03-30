@@ -39,7 +39,38 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 addNumber(v);
-                //A partir de aquí se hace la operación
+                CalcularIMC objeto = new CalcularIMC(Float.parseFloat(txtPeso.getText().toString()), Float.parseFloat(txtEstatura.getText().toString()));
+                lblResultado.setText(String.valueOf(objeto.calcular()));
+                if (objeto.calcular() < 16.00) {
+                    lblMensaje.setText("Delgadez severa");
+                }
+                if (objeto.calcular() >= 160.00 && objeto.calcular() <= 160.99) {
+                    lblMensaje.setText("Delgadez moderada");
+                }
+
+                if (objeto.calcular() >= 170.00 && objeto.calcular() <= 180.49) {
+                    lblMensaje.setText("Delgadez aceptable");
+                }
+
+                if (objeto.calcular() >= 180.50 && objeto.calcular() <= 240.99) {
+                    lblMensaje.setText("Peso normal");
+                }
+
+                if (objeto.calcular() >= 250.00 || objeto.calcular() <= 290.99) {
+                    lblMensaje.setText("Sobrepeso");
+                }
+
+                if (objeto.calcular() >= 300.00 || objeto.calcular() <= 340.99) {
+                    lblMensaje.setText("Obeso tipo I");
+                }
+
+                if (objeto.calcular() >= 350.00 || objeto.calcular() <= 400.00) {
+                    lblMensaje.setText("Obeso tipo II");
+                }
+
+                if (objeto.calcular() >= 400.00) {
+                    lblMensaje.setText("Obesidad tipo III");
+                }
             }
         });
     }

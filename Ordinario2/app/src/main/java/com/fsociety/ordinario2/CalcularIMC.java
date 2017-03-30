@@ -5,17 +5,17 @@ package com.fsociety.ordinario2;
  */
 
 public class CalcularIMC {
-    private int peso;
-    private int estatura;
+    private float peso;
+    private float estatura;
 
-    public CalcularIMC (int peso, int estatura)
+    public CalcularIMC (float peso, float estatura)
     {
         this.peso = peso;
         this.estatura = estatura;
     }
 
-    public int calcular ()
+    public float calcular ()
     {
-        return  (peso / ((estatura) *(estatura)));
+        return  (((estatura) *(estatura)) / peso);
     }
 }
